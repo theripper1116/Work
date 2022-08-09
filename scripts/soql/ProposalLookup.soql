@@ -1,0 +1,18 @@
+SELECT 
+
+    NAME, 
+
+    BRAND__C, 
+
+    DEV_ID__C, 
+
+    QA_ID__C, 
+
+    PROD_ID__C 
+
+
+FROM 
+
+    PROPOSAL_TEMPLATE_LOOKUP__C 
+
+    

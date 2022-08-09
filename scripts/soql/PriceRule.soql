@@ -1,0 +1,95 @@
+SELECT
+
+    Name,
+
+    SBQQ__Active__c,
+
+    SBQQ__EvaluationEvent__c,
+
+    SBQQ__EvaluationOrder__c,
+
+    SBQQ__TargetObject__c,
+
+    SBQQ__LookupObject__c,
+
+    (
+
+        SELECT
+
+            SBQQ__LookupField__c,
+
+            SBQQ__MatchType__c,
+
+            SBQQ__Operator__c,
+
+            SBQQ__PriceRule2__c,
+
+            SBQQ__TestedField__c,
+
+            SBQQ__TestedObject__c,
+
+            SBQQ__TestedValue__c
+
+        FROM
+
+            SBQQ__PriceRuleLookupQueries__r
+
+    ),
+
+    (
+
+        SELECT
+
+            SBQQ__Field__c,
+
+            SBQQ__Formula__c,
+
+            SBQQ__Order__c,
+
+            SBQQ__Rule__c,
+
+            SBQQ__SourceLookupField__c,
+
+            SBQQ__TargetObject__c,
+
+            SBQQ__Value__c
+
+        FROM
+
+            SBQQ__PriceActions__r
+
+    ),
+
+    (
+
+        SELECT
+
+            SBQQ__Index__c,
+
+            SBQQ__Field__c,
+
+            SBQQ__FilterFormula__c,
+
+            SBQQ__FilterType__c,
+
+            SBQQ__Object__c,
+
+            SBQQ__Operator__c,
+
+            SBQQ__Rule__c,
+
+            SBQQ__Value__c
+
+        FROM
+
+            SBQQ__PriceConditions__r
+
+    )
+
+FROM
+
+    SBQQ__PriceRule__c
+
+WHERE 
+
+    SBQQ__Active__c = true

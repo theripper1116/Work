@@ -1,0 +1,20 @@
+SELECT 
+
+  NAME, 
+
+  SBAA__TARGETOBJECT__C, 
+
+    (
+
+      SELECT 
+
+        SBAA__APPROVALCHAIN__C
+
+      FROM 
+
+        SBAA__APPROVALRULES__R 
+      
+) 
+FROM 
+    SBAA__APPROVALCHAIN__C 
+    

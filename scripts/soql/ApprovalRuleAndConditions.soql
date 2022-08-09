@@ -1,0 +1,33 @@
+SELECT 
+    NAME,
+
+    SBAA__TARGETOBJECT__C,
+
+    SBAA__APPROVALSTEP__C,
+
+    SBAA__ACTIVE__C, 
+
+    SBAA__APPROVERFIELD__C, 
+
+    SBAA__CONDITIONSMET__C, 
+
+    SBAA__APPROVALRECIPIENTS__C,
+
+    SBAA__REJECTIONRECIPIENTS__C ,
+    (
+        SELECT 
+            SBAA__INDEX__C, 
+            SBAA__APPROVALRULE__C, 
+            SBAA__TESTEDFIELD__C, 
+            SBAA__OPERATOR__C, 
+            SBAA__FILTERTYPE__C, 
+            SBAA__FILTERVALUE__C 
+        FROM 
+            SBAA__CONDITIONS__R 
+    ) 
+FROM 
+    SBAA__APPROVALRULE__C
+
+WHERE 
+
+    SBAA__ACTIVE__C = true

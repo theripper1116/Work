@@ -1,0 +1,23 @@
+List<sbaa__EmailTemplate__c> approvalEmail = new List<sbaa__EmailTemplate__c>();
+approvalEmail = [Select sbaa__TemplateId__c, Name from sbaa__EmailTemplate__c];
+Set<String> nameOfEmailTemplate = new Set<String>();
+for(sbaa__EmailTemplate__c a: approvalEmail){
+    nameOfEmailTemplate.add(a.Name);
+}
+
+List<EmailTemplate> emailTemplate = new List<EmailTemplate>();
+emailTemplate = [Select Id, Name from EmailTemplate where Name IN =: nameOfEmailTemplate];
+MAP<String, Id> mapForEmailTemplate = new MAP<String, Id>();
+for(EmailTemplate a: emailTemplate){
+    mapForEmailTemplate.put(a.Name, a.Id);
+}
+
+List<sbaa__EmailTemplate__c> listToUpdate = new List<sbaa__EmailTemplate__c>();
+for(sbaa__EmailTemplate__c email : approvalEmail){
+    if(emailTemplate.contains(email.Name)){
+        email.sbaa__TemplateId__c = mapForEmailTemplate.get(email.Name);
+        listToUpdate.add(approvalEmail.Id);
+    }
+}
+
+Database.update(listToUpdate);

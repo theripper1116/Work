@@ -1,0 +1,4 @@
+List<Article_kav> getIdsOfAll = new List<Article_kav>();
+getIdsOfAll = [select KnowledgeArticleId from Article__kav where ArticleNumber  = '000001034' and Language = 'en_US' ];
+String articleId = getIdsOfAll[0].KnowledgeArticleId;
+KbManagement.PublishingService.deleteDraftArticle(articleId);

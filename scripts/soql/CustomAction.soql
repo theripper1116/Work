@@ -1,0 +1,100 @@
+SELECT 
+
+    NAME,
+
+    SBQQ__DISPLAYORDER__C, 
+
+    SBQQ__TYPE__C, 
+
+    SBQQ__ACTIVE__C, 
+
+    SBQQ__DEFAULT__C, 
+
+    SBQQ__BRANDBUTTON__C, 
+
+    SBQQ__URLTARGET__C, 
+
+    SBQQ__URL__C, 
+
+    SBQQ__PAGE__C, 
+
+    SBQQ__LOCATION__C, 
+
+    SBQQ__ACTION__C, 
+
+    SBQQ__ICON__C, 
+
+    SBQQ__LABEL__C, 
+
+    SBQQ__DESCRIPTION__C,
+
+    (
+
+        SELECT 
+
+            NAME, 
+
+            SBQQ__TARGETOBJECT__C, 
+
+            SBQQ__TARGETFIELD__C, 
+
+            SBQQ__OPERATOR__C, 
+
+            SBQQ__DISPLAYORDER__C, 
+
+            SBQQ__FILTERVALUE__C, 
+
+            SBQQ__HIDDEN__C, 
+
+            SBQQ__ACTION__C, 
+
+            SBQQ__FILTERSOURCEOBJECT__C, 
+
+            SBQQ__FILTERSOURCEFIELD__C, 
+
+            SBQQ__HIDDENSOURCEFIELD__C, 
+
+            SBQQ__HIDDENSOURCEOBJECT__C 
+
+        FROM 
+
+            SBQQ__SEARCHFILTERS__R
+), 
+
+(
+    SELECT 
+
+        NAME, 
+
+        SBQQ__TARGETOBJECT__C, 
+
+        SBQQ__FIELD__C, 
+
+        SBQQ__FILTERVALUE__C, 
+
+        SBQQ__OPERATOR__C, 
+
+        SBQQ__CUSTOMACTION__C 
+
+    FROM 
+
+        SBQQ__CUSTOM_ACTION_CONDITIONS__R
+        
+)
+
+FROM 
+ 
+    SBQQ__CUSTOMACTION__C 
+
+ 
+WHERE 
+ 
+    SBQQ__ACTIVE__C = TRUE
+
+    AND
+
+    (
+            CREATEDBY.NAME = 'MAYANK JAIN' 
+        OR 
+            CREATEDBY.NAME = 'CAPGEMINI DEV TEAM'
+    )

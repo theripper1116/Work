@@ -1,0 +1,9 @@
+SELECT 
+
+    SBAA__TEMPLATEID__C, 
+
+    NAME 
+
+FROM 
+
+    SBAA__EMAILTEMPLATE__C

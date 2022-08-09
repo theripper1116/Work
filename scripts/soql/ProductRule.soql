@@ -1,0 +1,41 @@
+SELECT 
+
+    NAME,
+
+    SBQQ__ACTIVE__C,
+
+    SBQQ__ERRORMESSAGE__C,
+
+    SBQQ__EVALUATIONEVENT__C,
+
+    SBQQ__EVALUATIONORDER__C,  
+
+    SBQQ__CONDITIONSMET__C,
+
+    (
+
+        SELECT
+
+            SBQQ__RULE__C,
+
+            SBQQ__TESTEDOBJECT__C,
+
+            SBQQ__TESTEDFIELD__C,
+
+            SBQQ__OPERATOR__C,
+
+            SBQQ__FILTERTYPE__C, 
+
+            SBQQ__FILTERVALUE__C
+
+            FROM SBQQ__ERRORCONDITIONS__R
+
+    ) 
+
+FROM
+
+    SBQQ__PRODUCTRULE__C 
+
+WHERE
+ 
+    SBQQ__Active__c = true

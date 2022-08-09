@@ -1,0 +1,33 @@
+SELECT 
+
+    SBQQ__IMPORTFORMATNAME__C, 
+
+    SBQQ__ACTIVE__C, 
+
+    SBQQ__TARGETOBJECT__C, 
+
+    (
+
+        SELECT 
+
+            NAME, 
+
+            SBQQ__COLUMNINDEX__C, 
+
+            SBQQ__FIELDNAME__C, 
+
+            SBQQ__KEY__C 
+
+        FROM 
+
+            SBQQ__IMPORTCOLUMNS__R 
+
+) 
+
+FROM 
+
+    SBQQ__IMPORTFORMAT__C 
+
+WHERE 
+
+    SBQQ__Active__c = true

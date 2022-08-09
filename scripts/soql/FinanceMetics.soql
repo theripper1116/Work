@@ -1,0 +1,13 @@
+SELECT 
+
+    FREIGHT__C, 
+
+    COMMISSION__C, 
+
+    PLUMBER__C, 
+
+    CHANNELDISCOUNTS__C 
+
+FROM 
+
+    FINANCE_METRICS__C 
